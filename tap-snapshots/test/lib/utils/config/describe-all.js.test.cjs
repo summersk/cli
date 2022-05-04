@@ -1233,6 +1233,22 @@ The base URL of the npm registry.
 <!-- automatically generated, do not edit manually -->
 <!-- see lib/utils/config/definitions.js -->
 
+#### \`replace-registry-host\`
+
+* Default: "npmjs"
+* Type: "npmjs", "never", or "always"
+
+Defines behavior for replacing the registry host in a lockfile with the
+configured registry.
+
+The default behavior is to replace package dist URLs from the default
+registry (https://registry.npmjs.org) to the configured registry. If set to
+"never", then use the registry value. If set to "always", then replace the
+registry host with the configured host every time.
+
+<!-- automatically generated, do not edit manually -->
+<!-- see lib/utils/config/definitions.js -->
+
 #### \`save\`
 
 * Default: \`true\` unless when using \`npm update\` where it defaults to \`false\`

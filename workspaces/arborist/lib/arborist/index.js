@@ -74,7 +74,13 @@ class Arborist extends Base {
       cache: options.cache || `${homedir()}/.npm/_cacache`,
       packumentCache: options.packumentCache || new Map(),
       workspacesEnabled: options.workspacesEnabled !== false,
+      replaceRegistryHost: options.replaceRegistryHost,
       lockfileVersion: lockfileVersion(options.lockfileVersion),
+    }
+    if (options.replaceRegistryHost !== 'never'
+      && options.replaceRegistryHost !== 'always'
+    ) {
+      this.options.replaceRegistryHost = 'npmjs'
     }
 
     this[_workspacesEnabled] = this.options.workspacesEnabled

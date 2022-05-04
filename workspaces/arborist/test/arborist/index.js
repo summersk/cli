@@ -236,3 +236,12 @@ t.test('lockfileVersion config validation', async t => {
     message: 'Invalid lockfileVersion config: banana',
   })
 })
+
+t.test('valid replaceRegistryHost values', t => {
+  t.equal(new Arborist({ replaceRegistryHost: 'garbage' }).options.replaceRegistryHost, 'npmjs')
+  t.equal(new Arborist({ replaceRegistryHost: 'npmjs' }).options.replaceRegistryHost, 'npmjs')
+  t.equal(new Arborist({ replaceRegistryHost: undefined }).options.replaceRegistryHost, 'npmjs')
+  t.equal(new Arborist({ replaceRegistryHost: 'always' }).options.replaceRegistryHost, 'always')
+  t.equal(new Arborist({ replaceRegistryHost: 'never' }).options.replaceRegistryHost, 'never')
+  t.end()
+})
